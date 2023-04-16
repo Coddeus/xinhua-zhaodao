@@ -1,4 +1,4 @@
-![](https://img.shields.io/github/actions/workflow/status/Coddeus/xinhua-zhaodao/rust.yml)  ![](https://img.shields.io/github/v/release/Coddeus/xinhua-zhaodao)
+![](https://img.shields.io/github/actions/workflow/status/Coddeus/xinhua-zhaodao/Rust-OS-check.yml)  ![](https://img.shields.io/github/v/release/Coddeus/xinhua-zhaodao)
 
 # xinhua-zhaodao
 
