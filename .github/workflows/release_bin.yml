@@ -2,8 +2,7 @@ name: release_bin
 
 on:
   release:
-    types:
-      - created
+    types: [published]
 
 env:
   CARGO_TERM_COLOR: always
