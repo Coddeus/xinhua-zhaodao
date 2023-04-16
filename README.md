@@ -24,7 +24,8 @@ Default repo structure :
 xinhua-zhaodao
 ├─ .github
 │   └─ workflows
-│       └─ rust.yml
+│       ├─ release_bin.yml
+│       └─ Rust-OS-check.yml
 ├─ data
 │   └─ hanyu.db
 ├─ src
