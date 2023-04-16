@@ -25,12 +25,12 @@ xinhua-zhaodao
 ├─ .github
 │   └─ workflows
 │       └─ rust.yml
+├─ data
+│   └─ hanyu.db
 ├─ src
-│   ├─ data
-│   │   └─ hanyu.db
 │   └─ main.rs
 ├─ .gitignore
-├─ cargo.toml
+├─ Cargo.toml
 └─ README.md
 ```
 Main checks: 
