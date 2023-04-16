@@ -2,7 +2,7 @@ use sqlite;
 use std::io::stdin;
 
 fn main() -> Result<(), ()>{
-	let conn = sqlite::open("./src/data/hanyu.db").unwrap();
+	let conn = sqlite::open("./data/hanyu.db").unwrap();
 
     let mut component = String::new();
     stdin().read_line(&mut component).unwrap();
