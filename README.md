@@ -53,7 +53,7 @@ This tool may be useful for:
 Data for hanyu.db:
 - [Characters decomposition](https://commons.wikimedia.org/wiki/Commons:Chinese_characters_decomposition) on Wikimedia Commons
 - [Computerized 新华字典(xinhua zidian) scraper](https://github.com/pwxcoo/chinese-xinhua) on Github
-- [Characters frequency](https://github.com/thyrlian/namedict/blob/master/data/Modern%20Chinese%20Character%20Frequency%20List) on Github
+- [Characters frequency](https://lingua.mtsu.edu/chinese-computing/statistics/char/list.php?Which=MO) from Jun Da's website
 
 
 ## License
