@@ -22,6 +22,8 @@
 *.svg
 *.ico
 *.icns
+!/public/*
+!/src-tauri/icons/icon.ico
 
 # Temp
 /ideas.txt
