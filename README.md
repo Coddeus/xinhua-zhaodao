@@ -21,8 +21,12 @@ Note that most of the DB isn't used yet, but all tables have a purpose for next 
 
 
 ## Setup
-Using Cargo, it should work instantly when cloning.  
-
+Using Cargo and Tauri, it should work instantly when cloning: 
+```
+git clone https://github.com/Coddeus/xinhua-zhaodao.git
+cd xinhua-zhaodao
+cargo tauri dev
+```
 Default repo structure : 
 ```
 xinhua-zhaodao
@@ -30,17 +34,36 @@ xinhua-zhaodao
 │   └─ workflows
 │       ├─ release_bin.yml
 │       └─ Rust-OS-check.yml
-├─ data
-│   └─ hanyu.db
+├─ .vscode
+│   ├─ extensions.json
+│   ├─ launch.json
+│   └─ settings.json
+├─ (dist)
+├─ (fonts)
+├─ (public)
 ├─ src
+│   ├─ app.rs
 │   └─ main.rs
+├─ src-tauri
+│   ├─ data
+│   │   └─ hanyu.db
+│   ├─ (icons)
+│   ├─ src
+│   │   └─ main.rs
+│   ├─ build.rs
+│   ├─ Cargo.toml
+│   └─ tauri.conf.json
+├─ (target)
 ├─ .gitignore
+├─ .taurignore
+├─ (Cargo.lock)
 ├─ Cargo.toml
-└─ README.md
+├─ CHANGELOG.md
+├─ index.html
+├─ README.md
+├─ styles.css
+└─ Trunk.toml
 ```
-Main checks: 
-- `sqlite` is in Cargo.toml dependancies  
-- `hanyu.db`'s path is the same as the one in main.rs, line 5.
 
 
 ## Uses
