@@ -2,13 +2,15 @@ name: Rust-OS-check
 
 on:
   push:
-    branches: [ "main" ]
+    branches:
+      - "main"
     paths:
-      - src/**
+      - 'src/**'
   pull_request:
-    branches: [ "main" ]
+    branches:
+      - "main"
     paths:
-      - src/**
+      - 'src/**'
 
 env:
   CARGO_TERM_COLOR: always
