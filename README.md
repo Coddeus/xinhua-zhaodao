@@ -20,12 +20,13 @@ The used database, hanyu.db, is an edited merge of a 新华字典(xinhua zidian)
 Note that most of the DB isn't used yet, but all tables have a purpose for next releases.
 
 
-## Setup
+## Dev Setup
 Using Cargo and Tauri, it should work instantly when cloning: 
 ```
 git clone https://github.com/Coddeus/xinhua-zhaodao.git
 cd xinhua-zhaodao
 cargo tauri dev
+
 ```
 Default repo structure : 
 ```
