@@ -21,22 +21,28 @@ pub fn app() -> Html {
     // Searched component
     let cmp = use_state(|| String::new());
     // Search result (derivatives)
-    let derivs = use_state(|| String::new());
+    let deriv_zi = use_state(|| String::new());
+    let deriv_ci = use_state(|| String::new());
     {
-        let derivs = derivs.clone();
+        let deriv_zi = deriv_zi.clone();
+        let deriv_ci = deriv_ci.clone();
         let cmp = cmp.clone();
         let cmp2 = cmp.clone();
         use_effect_with_deps(
             move |_| {
                 spawn_local(async move {
                     if cmp.is_empty() {
-                        return;
+                        deriv_zi.set("".to_owned());
+                        deriv_ci.set("".to_owned());
+                        return
                     }
 
-                    let args = to_value(&SearchArgs { cmp: &*cmp }).unwrap();
-                    // Learn more about Tauri commands at https://tauri.app/v1/guides/features/command
-                    let new_derivs = invoke("derivatives", args).await.as_string().unwrap();
-                    derivs.set(new_derivs);
+                    let args_zi = to_value(&SearchArgs { cmp: &*cmp }).unwrap();
+                    let args_ci = to_value(&SearchArgs { cmp: &*cmp }).unwrap();
+                    let new_deriv_zi = invoke("derivative_zi", args_zi).await.as_string().unwrap();
+                    let new_deriv_ci = invoke("derivative_ci", args_ci).await.as_string().unwrap();
+                    deriv_zi.set(new_deriv_zi);
+                    deriv_ci.set(new_deriv_ci);
                 });
 
                 || {}
@@ -44,11 +50,10 @@ pub fn app() -> Html {
             cmp2,
         );
     }
-
-    let greet = {
+    let search = {
         let cmp = cmp.clone();
         let search_input = search_input.clone();
-        Callback::from(move |e: SubmitEvent| {
+        Callback::from(move |e: InputEvent| {
             e.prevent_default();
             cmp.set(
                 search_input
@@ -61,12 +66,15 @@ pub fn app() -> Html {
 
     html! {
         <main class="container">
-            <form class="row" onsubmit={greet}>
-                <input id="greet-input" ref={search_input} placeholder="Enter a character…" />
-                <button type="submit">{"Look up"}</button>
-            </form>
-
-            <p><b>{ &*derivs }</b></p>
+            <div><input id="search" ref={search_input} style="width: 20%; text-align: center;" placeholder="找 … 的转字和转词" oninput={search}/></div>
+            <br/>
+            <p>{"字："}</p>
+            <br/>
+            <p style="margin: 0 15% 0 15%;">{ &*deriv_zi }</p>
+            <br/>
+            <p>{"词："}</p>
+            <br/>
+            <p style="margin: 0 15% 0 15%;">{ &*deriv_ci }</p>
         </main>
     }
 }
