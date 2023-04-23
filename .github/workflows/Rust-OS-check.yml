@@ -26,9 +26,9 @@ jobs:
     runs-on: ${{ matrix.os }}
     steps:
     - uses: actions/checkout@v3
-    - name: Check
+    - name: Check Syntax
       run: cargo check --verbose
-    - name: Build
-      run: cargo build --verbose
+    - name: Build Tauri app
+      run: cargo tauri dev --verbose
     - name: Run tests
       run: cargo test --verbose
