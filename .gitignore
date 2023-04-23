@@ -13,18 +13,6 @@
 # Fonts
 *.ttf
 
-# Images (including the program-generated image)
-*.png
-*.jpg
-*.jpeg
-*.pdf
-*.ps
-*.svg
-*.ico
-*.icns
-!/public/*
-!/src-tauri/icons/icon.ico
-
 # Temp
 /ideas.txt
 /**/test.*
