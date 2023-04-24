@@ -44,4 +44,4 @@ jobs:
       - name: Check and Build code
         run: |
           cargo check --verbose
-          tauri build --verbose
+          cargo tauri build --verbose
