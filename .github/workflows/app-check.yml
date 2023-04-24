@@ -1,0 +1,46 @@
+name: App Check
+
+on:
+  push:
+    paths:
+      - '.github/workflows/app-check.yml'
+      - 'src/**'
+      - 'src-tauri/**'
+  pull_request:
+    paths:
+      - '.github/workflows/app-check.yml'
+      - 'src/**'
+      - 'src-tauri/**'
+
+env:
+  CARGO_TERM_COLOR: always
+
+jobs:
+  build:
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v3
+      - uses: baptiste0928/cargo-install@v2 # Compiled files caching
+      - name: install Rust stable
+        uses: dtolnay/rust-toolchain@stable
+      - name: install dependencies (ubuntu only)
+        if: matrix.platform == 'ubuntu-latest'
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libgtk-3-dev libwebkit2gtk-4.0-dev libappindicator3-dev librsvg2-dev patchelf
+      - name: install targets and Trunk for Tauri build
+        run: |
+          set RUST_BACKTRACE=1
+          rustup target add wasm32-unknown-unknown
+          rustup target add x86_64-apple-darwin
+          rustup target add x86_64-pc-windows-msvc
+          rustup target add x86_64-unknown-linux-gnu
+          cargo install trunk
+      - name: Check and Build code
+        run: |
+          cargo check --verbose
+          tauri build --verbose
