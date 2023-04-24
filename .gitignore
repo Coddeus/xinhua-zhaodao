@@ -13,6 +13,9 @@
 # Fonts
 *.ttf
 
+# Release data
+*.zip
+
 # Temp
 /ideas.txt
 /**/test.*
