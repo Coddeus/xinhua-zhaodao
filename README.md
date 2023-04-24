@@ -1,23 +1,25 @@
-![](https://img.shields.io/github/actions/workflow/status/Coddeus/xinhua-zhaodao/Rust-OS-check.yml)  ![](https://img.shields.io/github/v/release/Coddeus/xinhua-zhaodao)
+![](https://img.shields.io/github/actions/workflow/status/coddeus/xinhua-zhaodao/app-check.yml?label=Build%20on%20all%20OS)  ![](https://img.shields.io/github/v/release/Coddeus/xinhua-zhaodao)
 
 # xinhua-zhaodao
 
-Finds simplified Mandarin words containing a given radical.
+Finds derived Simplified Mandarin characters and words from a given character.
 
 ## General info
 ### Radicals
-The given radical can be any Unicode character (like ⿕，加 or 丿).  
-Thus it is not limited to any radical classification, like Kangxi Radicals.  
+The given character can be any Unicode character (like ⿕，加 or 丿).  
+Thus the input character might not be a Kangxi radical or even a Mandarin character
 
-Note that it will look for the exact character that was passed in - it doesn't recognize alternative forms (yet).  
-Therefore no derivative of an alternative form will be found (水 has 36 results, but 氵 has 765).
+Note that it will look for the exact character that was passed in - it doesn't recognize alternative forms.  
+Therefore derivatives of an alternative form may not be found (水 has 36 results, but 氵 has 765).
 
 ### Output
-The derivatives are characters which exist in the xinhua dictionary.
+The derivatives are: 
+- Derived characters (with graphical composition, not etymological) which exist in the xinhua dictionary. Sorted in ascending order of stroke number.
+- Derived words which exist in the xinhua dictionary. Includes proper nouns. Sorted in ascending order of characters number.
 
 ### Database
 The used database, hanyu.db, is an edited merge of a 新华字典(xinhua zidian) database, a decomposition database and a frequency list. (see  [>Thanks](#thanks))  
-Note that most of the DB isn't used yet, but all tables have a purpose for next releases.
+Note that some of the DB isn't used yet, but all tables have a purpose for next releases.
 
 
 ## Dev Setup
@@ -33,8 +35,8 @@ Default repo structure :
 xinhua-zhaodao
 ├─ .github
 │   └─ workflows
-│       ├─ release_bin.yml
-│       └─ Rust-OS-check.yml
+│       ├─ app-check.yml
+│       └─ bin-release.yml
 ├─ .vscode
 │   ├─ extensions.json
 │   ├─ launch.json
@@ -69,7 +71,7 @@ xinhua-zhaodao
 
 ## Uses
 This tool may be useful for: 
-- Those who want to discover new characters (and remember them) through radicals. (original purpose)
+- Those who want to discover new characters and words (and remember them) through radicals. (original purpose)
 - Those who prefer scrolling thousands of Chinese characters (because it's beautiful) instead of social media content.
 
 
