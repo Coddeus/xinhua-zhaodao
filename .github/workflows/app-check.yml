@@ -24,10 +24,12 @@ jobs:
     runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v3
+      - name: setup node
+        uses: actions/setup-node@v3
+        with:
+          node-version: latest
       - name: install Rust stable
         uses: dtolnay/rust-toolchain@stable
-      - name: install tauri-cli
-        run: cargo add tauri-cli
       - name: install dependencies (ubuntu only)
         if: matrix.platform == 'ubuntu-latest'
         run: |
@@ -44,4 +46,5 @@ jobs:
       - name: Check and Build code
         run: |
           cargo check --verbose
-          cargo tauri build --verbose
+          npm [ 'install', '-g', '@tauri-apps/cli' ]
+          tauri build --verbose
