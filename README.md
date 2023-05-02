@@ -1,4 +1,13 @@
-![](https://img.shields.io/github/actions/workflow/status/coddeus/xinhua-zhaodao/app-check.yml?label=Build%20on%20all%20OS)  ![](https://img.shields.io/github/v/release/Coddeus/xinhua-zhaodao)
+<div style="display: flex; justify-content: space-around; align-items: center;">
+    <img src="docs/1.1.svg" alt="Logo" title="logo" style="width: 30%">
+    <img src="docs/example.png" alt="Lookup example" title="example" style="width: 40%">
+</div>
+
+<br>
+<div style="display: flex; justify-content: center; align-items: center;">
+
+![](https://img.shields.io/github/actions/workflow/status/coddeus/xinhua-zhaodao/app-check.yml?label=Build%20on%20all%20OS) ![](https://img.shields.io/github/v/release/Coddeus/xinhua-zhaodao)
+</div>
 
 # xinhua-zhaodao
 
