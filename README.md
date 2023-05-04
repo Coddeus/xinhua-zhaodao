@@ -1,6 +1,6 @@
 <div align="center">
-    <img src="docs/1.1.svg" alt="Logo" title="logo" style="width: 20em">  
-    <img src="docs/example.png" alt="Lookup example" title="example" style="width: 20em">  
+    <img src="docs/1.1.svg" alt="Logo" title="logo" style="height: 20em">  
+    <img src="docs/example.png" alt="Lookup example" title="example" style="height: 20em">  
 </div>
 <br/>
 <div align="center">
