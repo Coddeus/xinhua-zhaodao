@@ -32,10 +32,12 @@ Note that some of the DB isn't used yet, but all tables have a purpose for next 
 
 
 ## Dev Setup
-Using Cargo and Tauri, it should work instantly when cloning: 
+Using Cargo and Tauri, it should work after cloning and installing Tauri and Trunk CLI tools: 
 ```
 git clone https://github.com/Coddeus/xinhua-zhaodao.git
 cd xinhua-zhaodao
+cargo install tauri-cli
+cargo install trunk
 cargo tauri dev
 
 ```
